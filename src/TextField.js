@@ -17,6 +17,7 @@ const TextField = React.createClass({
   },
 
   propTypes: {
+    type: PropTypes.string,
     floatingLabelText: PropTypes.string,
     hintText: PropTypes.string,
     defaultValue: PropTypes.string,
@@ -30,6 +31,7 @@ const TextField = React.createClass({
 
   getDefaultProps: function() {
     return {
+      type: 'text',
       floatingLabelText: '',
       hintText: '',
       defaultValue: '',
@@ -106,7 +108,8 @@ const TextField = React.createClass({
       defaultValue,
       floatingLabelText,
       hintText,
-      onClick
+      onClick,
+      type
     } = this.props;
 
     return (
@@ -114,6 +117,7 @@ const TextField = React.createClass({
         {this.renderLabelText(floatingLabelText, style.floatingLabelText)}
         {this.renderLabelText(hintText, style.hintText)}
         <input
+          type={type}
           style={style.input}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
